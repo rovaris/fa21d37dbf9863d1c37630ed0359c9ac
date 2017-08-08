@@ -1,0 +1,8 @@
+{
+    "dev": {
+        "publicPath": "http://localhost:8000"
+    },
+    "production": {
+        "publicPath": "http://localhost:8000"
+    }
+}

@@ -1,0 +1,8 @@
+node_modules
+static
+release
+config/hosts
+*.log
+!config/hosts/.gitkeep 
+
+
