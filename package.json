@@ -7,8 +7,13 @@
   "scripts": {
     "start": "webpack && nodemon index.js",
     "lint": "eslint client/**/*.jsx server/**/*.js",
-    "test": "jest -o",
+    "test": "jest",
     "test-all": "eslint client/**/*.jsx server/**/*.js && jest --coverage"
+  },
+  "jest": {
+    "testMatch": [
+      "**/test/**/*.jsx"
+    ]
   },
   "author": "Lucas Rovaris",
   "license": "Apache-2.0",
@@ -43,6 +48,7 @@
     "eslint-plugin-react": "^6.10.3",
     "eslint-plugin-standard": "^2.1.1",
     "exports-loader": "^0.6.4",
+    "express-session": "^1.15.5",
     "extract-text-webpack-plugin": "^2.1.0",
     "html-webpack-plugin": "^2.28.0",
     "html-webpack-template": "^6.0.1",
@@ -64,6 +70,7 @@
     "redux-thunk": "^2.2.0",
     "resolve-url-loader": "^2.0.2",
     "sass-loader": "^6.0.3",
+    "session-file-store": "^1.1.2",
     "style-loader": "^0.16.0",
     "url-loader": "^0.5.8",
     "webpack": "^2.3.2",

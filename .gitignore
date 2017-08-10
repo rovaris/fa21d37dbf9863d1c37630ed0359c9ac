@@ -5,3 +5,4 @@ config/hosts
 *.log
 !config/hosts/.gitkeep
 coverage
+.sessions

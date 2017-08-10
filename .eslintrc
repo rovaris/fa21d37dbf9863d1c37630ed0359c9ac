@@ -21,7 +21,8 @@
         "react/prop-types": 'off',
         "no-param-reassign": 0,
         "import/prefer-default-export": 'off',
-        "global-require": 'off'
+        "global-require": 'off',
+        "no-console": ["error", { "allow": ["warn", "error"] }],
     },
     "ecmaFeatures": {
         "modules": true,
