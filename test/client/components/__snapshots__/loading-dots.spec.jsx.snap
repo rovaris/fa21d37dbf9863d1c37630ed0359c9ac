@@ -1,0 +1,114 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test Loading Dots behaviour Scenario:
+            Should render dots accordandly with the number of dots provided 1`] = `
+<div
+  className="loader"
+>
+  <div
+    className="circle"
+  />
+  <div
+    className="circle"
+  />
+  <div
+    className="circle"
+  />
+</div>
+`;
+
+exports[`Test Loading Dots behaviour Scenario:
+            Should render dots accordandly with the number of dots provided 2`] = `
+<div
+  className="loader"
+>
+  <div
+    className="circle"
+  />
+  <div
+    className="circle"
+  />
+  <div
+    className="circle"
+  />
+  <div
+    className="circle"
+  />
+  <div
+    className="circle"
+  />
+  <div
+    className="circle"
+  />
+</div>
+`;
+
+exports[`Test Loading Dots behaviour Scenario:
+            Should render dots accordandly with the number of dots provided 3`] = `
+<div
+  className="loader"
+>
+  <div
+    className="circle"
+  />
+  <div
+    className="circle"
+  />
+  <div
+    className="circle"
+  />
+  <div
+    className="circle"
+  />
+  <div
+    className="circle"
+  />
+  <div
+    className="circle"
+  />
+  <div
+    className="circle"
+  />
+  <div
+    className="circle"
+  />
+</div>
+`;
+
+exports[`Test Loading Dots behaviour Scenario:
+            Should render dots accordandly with the number of dots provided 4`] = `
+<div
+  className="loader"
+>
+  <div
+    className="circle"
+  />
+  <div
+    className="circle"
+  />
+  <div
+    className="circle"
+  />
+  <div
+    className="circle"
+  />
+  <div
+    className="circle"
+  />
+  <div
+    className="circle"
+  />
+  <div
+    className="circle"
+  />
+  <div
+    className="circle"
+  />
+  <div
+    className="circle"
+  />
+  <div
+    className="circle"
+  />
+</div>
+`;

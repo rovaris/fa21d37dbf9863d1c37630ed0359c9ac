@@ -2,8 +2,8 @@ import SagaHelper from 'redux-saga-testing';
 import { call, put } from 'redux-saga/effects';
 import fetch from 'isomorphic-fetch';
 
-import { twitterSignInError } from '../../client/views/login/actions';
-import { redirectToUrl, twitterOauthSignIn } from '../../client/views/login/saga';
+import { twitterSignInError } from '../../../client/views/login/actions';
+import { redirectToUrl, twitterOauthSignIn } from '../../../client/views/login/saga';
 
 describe('Login saga', () => {
 

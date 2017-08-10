@@ -57,9 +57,9 @@ const connectRoute = (req, res) => {
     .then((user) => {
         req.session.user = user;
         const name = user.name;
-        const hashtag = user.screen_name;
+        const screenName = user.screen_name;
         const profileImageUrl = user.profile_image_url;
-        res.cookie('user', { name, hashtag, profileImageUrl });
+        res.cookie('user', JSON.stringify({ name, screenName, profileImageUrl }));
         res.redirect('/');
     })
     .catch(error => res.status(500).send(error));

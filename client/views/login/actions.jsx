@@ -1,5 +1,7 @@
+// @flow
 import { uniqueId } from 'lodash';
 
+export const ACTION_LOAD_SESSION: string = uniqueId('ACTION_LOAD_SESSION');
 export const ACTION_TWITTER_SIGN_IN: string = uniqueId('TWITTER_SIGN_IN');
 export const ACTION_TWITTER_SIGN_IN_LOADED: string = uniqueId('ACTION_TWITTER_SIGN_IN_LOADED');
 export const ACTION_TWITTER_SIGN_IN_ERROR: string = uniqueId('ACTION_TWITTER_SIGN_IN_ERROR');
@@ -9,6 +11,11 @@ type Action = {
     type: string,
     payload: ?{},
 };
+
+export const loadSession: Action = session => ({
+    type: ACTION_LOAD_SESSION,
+    payload: session,
+});
 
 export const twitterSignIn: Action = () => ({
     type: ACTION_TWITTER_SIGN_IN,
