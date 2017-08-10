@@ -1,18 +1,17 @@
-import { applyMiddleware, compose, createStore, combineReducers } from 'redux';
-import thunk from 'redux-thunk';
+import 'babel-polyfill';
+import { createStore, applyMiddleware, combineReducers } from 'redux';
 import createSagaMiddleware from 'redux-saga';
+import { rootSagas, reducers } from './views';
 
 const sagaMiddleware = createSagaMiddleware();
 
-const createAsyncStore = compose(
-    applyMiddleware(thunk),
-    applyMiddleware(sagaMiddleware),
-    window.devToolsExtension ? window.devToolsExtension() : func => func,
-)(createStore);
+const store = createStore(
+  combineReducers({ ...reducers }),
+  applyMiddleware(sagaMiddleware),
+);
 
-// sagaMiddleware.run(mySaga)
+sagaMiddleware.run(rootSagas);
 
-// export default createAsyncStore(
-//     combineReducers(reducers),
-// );
+
+export default store;
 

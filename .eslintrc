@@ -30,7 +30,8 @@
     "globals": {
         "window": true,
         "helpers": true,
-        "lodash": true
+        "lodash": true,
+        "PROJECT_ENV": true,
     },
     "settings" : {
         "import/resolver": {
