@@ -63,10 +63,9 @@ const oauthRequestRoute = (req, res) => {
         if (error) {
             console.error(`Error getting OAuth request token : ${JSON.stringify(error)}`);
             return res(500).json(JSON.stringify(error));
-        } else {
-            res.status(200)
-                .json({ auth: `https://api.twitter.com/oauth/authenticate?oauth_token=${requestToken}` });
         }
+        const apiUri = 'https://api.twitter.com/oauth/authenticate?oauth_token=';
+        res.status(200).json({ auth: `${apiUri}${requestToken}` });
     });
 };
 
