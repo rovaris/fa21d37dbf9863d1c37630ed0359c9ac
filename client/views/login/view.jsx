@@ -1,15 +1,29 @@
+// @flow
 /* eslint-disable */
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Container, Panel, Button } from 'muicss/react';
-import { twitterSignIn } from './actions';
+import { loadUserSession } from 'helpers/session';
+import { twitterSignIn, loadSession } from './actions';
 import type { Reducer } from './reducer';
+import type Session from 'helpers/session';
 
 type Props = {
     signIn: () => void,
     reducer: Reducer,
 };
 class LoginView extends Component<Props> {
+
+    componentWillMount() {
+        const { useSession, goTo, history } = this.props;
+        const { isLoggedIn } = this.props.reducer;
+        const session: Session = loadUserSession();
+
+        if (session && !isLoggedIn) {
+            useSession(session);
+        }
+    }
+
     render() {
         const { signIn } = this.props;
         return (
@@ -29,6 +43,8 @@ class LoginView extends Component<Props> {
 }
 const mapDispatchToProps = dispatch => ({
     signIn: () => dispatch(twitterSignIn()),
+    useSession: session => dispatch(loadSession(session)),
+
 });
 
 const mapStateToProps = ({ LoginReducer }) => ({

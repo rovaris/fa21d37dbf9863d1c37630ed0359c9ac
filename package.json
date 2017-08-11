@@ -6,9 +6,15 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack && nodemon index.js",
-    "lint": "eslint client/**/*.jsx server/**/*.js",
-    "test": "jest -o",
+    "lint": "eslint client/**/*.jsx server/**/*.js test/**/*.jsx",
+    "test": "jest",
     "test-all": "eslint client/**/*.jsx server/**/*.js && jest --coverage"
+  },
+  "jest": {
+    "testMatch": [
+      "**/test/**/*.spec.jsx"
+    ],
+    "setupFiles": ["./test/setup.jsx"]
   },
   "author": "Lucas Rovaris",
   "license": "Apache-2.0",
@@ -16,7 +22,7 @@
     "babel-core": "^6.25.0",
     "babel-loader": "^7.1.1",
     "babel-preset-latest": "^6.24.0",
-    "babel-preset-react": "^6.23.0",
+    "babel-preset-react": "^6.24.1",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-hot-loader": "^3.0.0-beta.6",
@@ -25,6 +31,7 @@
   },
   "devDependencies": {
     "babel-eslint": "^7.2.1",
+    "babel-jest": "^20.0.3",
     "babel-polyfill": "^6.23.0",
     "babel-preset-es2015": "^6.24.1",
     "babel-preset-flow": "^6.23.0",
@@ -43,12 +50,14 @@
     "eslint-plugin-react": "^6.10.3",
     "eslint-plugin-standard": "^2.1.1",
     "exports-loader": "^0.6.4",
+    "express-session": "^1.15.5",
     "extract-text-webpack-plugin": "^2.1.0",
     "html-webpack-plugin": "^2.28.0",
     "html-webpack-template": "^6.0.1",
     "imports-loader": "^0.7.1",
     "isomorphic-fetch": "^2.2.1",
     "jest": "^20.0.4",
+    "js-cookies": "^1.0.4",
     "muicss": "^0.9.18",
     "node-sass": "^4.5.1",
     "node-twitter-api": "^1.8.0",
@@ -56,6 +65,7 @@
     "postcss-loader": "^1.3.3",
     "react-addons-shallow-compare": "^15.4.2",
     "react-icons": "^2.2.5",
+    "react-test-renderer": "^15.6.1",
     "react-transition-group": "^1.2.0",
     "redux": "^3.6.0",
     "redux-actions": "^2.0.1",
@@ -64,6 +74,7 @@
     "redux-thunk": "^2.2.0",
     "resolve-url-loader": "^2.0.2",
     "sass-loader": "^6.0.3",
+    "session-file-store": "^1.1.2",
     "style-loader": "^0.16.0",
     "url-loader": "^0.5.8",
     "webpack": "^2.3.2",
