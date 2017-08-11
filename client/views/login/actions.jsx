@@ -8,7 +8,7 @@ export const ACTION_TWITTER_SIGN_IN_ERROR: string = uniqueId('ACTION_TWITTER_SIG
 export const ACTION_REDUCER_RESET: string = uniqueId('ACTION_REDUCER_RESET');
 export const ACTION_TWITTER_DISCONNECT: string = uniqueId('ACTION_TWITTER_DISCONNECT');
 export const ACTION_TWITTER_DISCONNECT_SUCCESS: string = uniqueId('ACTION_TWITTER_DISCONNECT_SUCCESS');
-export const ACTION_TWITTER_DISCONNECT_ERROR: string = uniqueId('ACTION_REDUCER_RESET');
+export const ACTION_TWITTER_DISCONNECT_ERROR: string = uniqueId('ACTION_TWITTER_DISCONNECT_ERROR');
 
 type Action = {
     type: string,

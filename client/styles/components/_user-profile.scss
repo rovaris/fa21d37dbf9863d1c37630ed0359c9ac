@@ -1,0 +1,23 @@
+.user-profile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    & > div > img {
+        border-radius: 50%;
+    }
+
+    & > div > h2 {
+        line-height: 0px;
+    }
+
+    & > div > p {
+        line-height: initial;
+        opacity: 0.7;
+        margin-top: 2px;
+    }
+
+    .text {
+        padding-left: 10px;
+    }
+}

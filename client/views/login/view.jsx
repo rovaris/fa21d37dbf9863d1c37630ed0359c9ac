@@ -5,14 +5,15 @@ import { connect } from 'react-redux';
 import { Container, Panel, Button } from 'muicss/react';
 import { loadUserSession } from 'helpers/session';
 import { twitterSignIn, loadSession } from './actions';
-import type { Reducer } from './reducer';
+import type { LoginReducerType } from './reducer';
 import type Session from 'helpers/session';
 
-type Props = {
+type ViewType = {
     signIn: () => void,
-    reducer: Reducer,
+    reducer: LoginReducer,
 };
-class LoginView extends Component<Props> {
+
+class LoginView extends Component<ViewType> {
 
     componentWillMount() {
         const { useSession, goTo, history } = this.props;
@@ -27,14 +28,19 @@ class LoginView extends Component<Props> {
     render() {
         const { signIn } = this.props;
         return (
-            <Container>
+            <Container className="login-box">
                 <Panel>
                     <Button
                         variant="raised"
                         color="primary"
                         onClick={ signIn }
                     >
-                        sign in with twitter;
+                        <span
+                            style={ { paddingRight: '5px' } }
+                            title="twitter sign in"
+                            className="icon fa fa-twitter"
+                        />
+                        sign in
                     </Button>
                 </Panel>
             </Container>

@@ -1,7 +1,19 @@
 @import 'base/colors';
 @import 'node_modules/muicss/lib/sass/mui';
 @import 'components/loading-dots';
+@import 'components/user-profile';
+@import 'components/tweet-container';
 
 body {
     font-family: 'Roboto', sans-serif;
+}
+
+
+.login-box {
+    height: 50%;
+    width: 50%;
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    text-align: center;
 }
