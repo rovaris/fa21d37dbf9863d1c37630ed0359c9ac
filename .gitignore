@@ -3,6 +3,6 @@ static
 release
 config/hosts
 *.log
-!config/hosts/.gitkeep 
-
-
+!config/hosts/.gitkeep
+coverage
+.sessions

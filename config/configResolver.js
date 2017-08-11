@@ -11,6 +11,10 @@ function loadConfig(env) {
     try {
         config = JSON.parse(fs.readFileSync(customConfigFile, 'utf8'));
     } catch(e) {
+        console.error(
+            `Error loading machine config file: ${customConfigFile},\n
+            followed by error: \n${e}`
+        );
         config = JSON.parse(fs.readFileSync(defaultConfigFile, 'utf8'));
     }
 

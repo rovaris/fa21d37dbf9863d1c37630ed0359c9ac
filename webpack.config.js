@@ -9,6 +9,7 @@ const config = configResolver.loadConfig('dev');
 module.exports = {
     context: path.join(__dirname, 'client'),
     entry: [
+        'babel-polyfill',
         'react-hot-loader/patch',
         './main.jsx',
     ],

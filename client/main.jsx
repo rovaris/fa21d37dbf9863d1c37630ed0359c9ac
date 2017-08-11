@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import { AppContainer } from 'react-hot-loader';
 import './styles/main.scss';
 import App from './App';
-// import store from './store';
+import store from './store';
 
 const DEFAULT_APP_ID = 'root';
 
@@ -15,7 +15,7 @@ function renderApp(RootComponent, id = DEFAULT_APP_ID, args = {}) {
     if (target) {
         ReactDOM.render(
             <AppContainer>
-                <Provider /* store={ store } */>
+                <Provider store={ store }>
                     <RootComponent { ...args } />
                 </Provider>
             </AppContainer>,
