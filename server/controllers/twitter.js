@@ -65,7 +65,18 @@ const connectRoute = (req, res) => {
     .catch(error => res.status(500).send(error));
 };
 
+const disconnect = (req, res) => {
+    if (!req.session.user) {
+        res.status(403).json({ error: 'User not authenticated' });
+    }
+
+    res.clearCookie('user');
+    req.session = null;
+    res.status(200).send({});
+};
+
 module.exports = {
     oauth: oauthRequestRoute,
     connect: connectRoute,
+    disconnect,
 };

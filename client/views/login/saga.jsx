@@ -5,7 +5,10 @@ import fetch from 'isomorphic-fetch';
 
 import {
     ACTION_TWITTER_SIGN_IN,
+    ACTION_TWITTER_DISCONNECT,
     twitterSignInError,
+    twitterDisconnectSuccess,
+    twitterDisconnectError,
 } from './actions';
 
 type SignInResponse = {
@@ -32,8 +35,30 @@ export function* twitterOauthSignIn() {
     }
 }
 
+export function* disconnectTwitter() {
+    try {
+        const response = yield call(
+            fetch,
+            '/disconnect',
+            { method: 'POST', credentials: 'same-origin' },
+        );
+
+        const status = yield response.status;
+
+        if (status !== 200) {
+            const error = new Error(`Disconnect fail due to status: ${status}`);
+            yield put(twitterDisconnectError({ error }));
+        }
+
+        yield put(twitterDisconnectSuccess());
+    } catch (err) {
+        yield put(twitterDisconnectError(err));
+    }
+}
+
 function* loginSaga() {
     yield takeEvery(ACTION_TWITTER_SIGN_IN, twitterOauthSignIn);
+    yield takeEvery(ACTION_TWITTER_DISCONNECT, disconnectTwitter);
 }
 
 export default loginSaga;

@@ -24,15 +24,9 @@ app.use(session({
     cookie: { maxAge: 3600000,secure: false, httpOnly: true }
 }));
 
-app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  next();
-});
+registerRoutes(app);
 
 app.use(ecstatic({ root: __dirname + '/static' }));
-
-registerRoutes(app);
 
 http.createServer(app).listen(8000);
  

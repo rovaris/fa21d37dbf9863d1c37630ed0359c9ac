@@ -1,20 +1,19 @@
 import React from 'react';
-import { LoadingDots } from '../../../client/components';
 import renderer from 'react-test-renderer';
+import { LoadingDots } from '../../../client/components';
 
 describe('Test Loading Dots behaviour', () => {
-
     function asserts(numberOfDots) {
         const component = renderer.create(
-            <LoadingDots numberOfDots={ numberOfDots } />
+            <LoadingDots numberOfDots={ numberOfDots } />,
         );
 
-        let tree = component.toJSON();
+        const tree = component.toJSON();
         expect(tree).toMatchSnapshot();
 
         expect(tree.children.length).toBe(numberOfDots);
 
-        tree.children.forEach(child => {
+        tree.children.forEach((child) => {
             expect(child.type).toBe('div');
             expect(child.props.className).toBe('circle');
             expect(child.children).toBeNull();

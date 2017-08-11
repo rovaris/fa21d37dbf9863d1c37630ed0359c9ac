@@ -6,6 +6,9 @@ import {
     ACTION_TWITTER_SIGN_IN,
     ACTION_TWITTER_SIGN_IN_LOADED,
     ACTION_TWITTER_SIGN_IN_ERROR,
+    ACTION_TWITTER_DISCONNECT,
+    ACTION_TWITTER_DISCONNECT_SUCCESS,
+    ACTION_TWITTER_DISCONNECT_ERROR,
     ACTION_REDUCER_RESET,
 } from './actions';
 
@@ -41,6 +44,20 @@ const LoginViewReducer = handleActions({
         ...state,
         loading: false,
         error: null,
+    }),
+    [ACTION_TWITTER_DISCONNECT]: state => ({
+        ...state,
+        loading: true,
+        error: null,
+    }),
+    [ACTION_TWITTER_DISCONNECT_SUCCESS]: state => ({
+        ...state,
+        ...LOGIN_VIEW_REDUCER,
+    }),
+    [ACTION_TWITTER_DISCONNECT_ERROR]: (state, error) => ({
+        ...state,
+        loading: false,
+        error,
     }),
     [ACTION_TWITTER_SIGN_IN_ERROR]: (state, error) => ({
         ...state,
