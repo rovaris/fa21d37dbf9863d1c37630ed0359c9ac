@@ -3,7 +3,6 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
 import { AppContainer } from 'react-hot-loader';
-import { Container } from 'muicss/react';
 import './styles/main.scss';
 import App from './App';
 import store from './store';
@@ -17,9 +16,7 @@ function renderApp(RootComponent, id = DEFAULT_APP_ID, args = {}) {
         ReactDOM.render(
             <AppContainer>
                 <Provider store={ store }>
-                    <Container>
-                        <RootComponent { ...args } />
-                    </Container>
+                    <RootComponent { ...args } />
                 </Provider>
             </AppContainer>,
             target,

@@ -1,0 +1,5 @@
+.tweet-container {
+    & > div > p {
+        word-wrap: break-word;
+    }   
+}

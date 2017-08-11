@@ -15,8 +15,3 @@ export const loadUserSession = ():Session => {
 
     return null;
 };
-
-export const destroySession = () => {
-    Cookies.remove('user');
-    Cookies.remove('connect.sid');
-};

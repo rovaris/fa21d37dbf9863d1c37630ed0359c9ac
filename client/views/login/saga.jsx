@@ -46,6 +46,7 @@ export function* disconnectTwitter() {
         const status = yield response.status;
 
         if (status !== 200) {
+            destroySession();
             const error = new Error(`Disconnect fail due to status: ${status}`);
             yield put(twitterDisconnectError({ error }));
         }

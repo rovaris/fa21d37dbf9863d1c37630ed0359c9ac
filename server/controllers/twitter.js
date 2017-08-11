@@ -62,6 +62,7 @@ const oauthRequestRoute = (req, res) => {
     twitter.getRequestToken((error, requestToken) => {
         if (error) {
             console.error(`Error getting OAuth request token : ${JSON.stringify(error)}`);
+            return res(500).json(JSON.stringify(error));
         } else {
             res.status(200)
                 .json({ auth: `https://api.twitter.com/oauth/authenticate?oauth_token=${requestToken}` });
@@ -112,7 +113,8 @@ const tweets = (req, res) => {
 
 const disconnect = (req, res) => {
     if (!req.session.user) {
-        res.status(403).json({ error: 'User not authenticated' });
+        res.clearCookie('user');
+        return res.status(403).json({ error: 'User not authenticated' });
     }
 
     res.clearCookie('user');

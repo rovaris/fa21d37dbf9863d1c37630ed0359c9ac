@@ -12,7 +12,7 @@ import {
     ACTION_REDUCER_RESET,
 } from './actions';
 
-export type Reducer = {
+export type LoginReducerType = {
     loggedIn: boolean,
     name: string,
     screenName: string,
@@ -21,7 +21,7 @@ export type Reducer = {
     error: ?string,
 };
 
-export const LOGIN_VIEW_REDUCER: Reducer = {
+export const LOGIN_VIEW_REDUCER: LoginReducerType = {
     isLoggedIn: false,
     name: '',
     screenName: '',
@@ -47,6 +47,7 @@ const LoginViewReducer = handleActions({
     }),
     [ACTION_TWITTER_DISCONNECT]: state => ({
         ...state,
+        isLoggedIn: false,
         loading: true,
         error: null,
     }),
@@ -54,19 +55,17 @@ const LoginViewReducer = handleActions({
         ...state,
         ...LOGIN_VIEW_REDUCER,
     }),
-    [ACTION_TWITTER_DISCONNECT_ERROR]: (state, error) => ({
+    [ACTION_TWITTER_DISCONNECT_ERROR]: (state, { payload }) => ({
         ...state,
         loading: false,
-        error,
+        error: payload,
     }),
-    [ACTION_TWITTER_SIGN_IN_ERROR]: (state, error) => ({
+    [ACTION_TWITTER_SIGN_IN_ERROR]: (state, { payload }) => ({
         ...state,
         loading: false,
-        error,
+        error: payload,
     }),
-    [ACTION_REDUCER_RESET]: () => ({
-        ...LOGIN_VIEW_REDUCER,
-    }),
+    [ACTION_REDUCER_RESET]: () => LOGIN_VIEW_REDUCER,
 }, LOGIN_VIEW_REDUCER);
 
 export default LoginViewReducer;
