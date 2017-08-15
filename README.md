@@ -25,7 +25,7 @@ on your terminal run:
 > hostname
 MyMachineName-Lan-Example
 > cd hosts
-> mv default.vars.json default.vars.json MyMachineName-Lan-Example.vars.json
+> mv default.vars.json MyMachineName-Lan-Example.vars.json
 
 ```
 The config file looks like:
@@ -78,7 +78,7 @@ yarn server
 ```
 PS: If you wish to run the server in watch mode please install
 ```
-yarn global nodemon
+yarn global add nodemon
 ```
 and run
 ```
